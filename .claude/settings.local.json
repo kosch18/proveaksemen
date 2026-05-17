@@ -15,7 +15,11 @@
       "Bash(taskkill /F /IM node.exe)",
       "Bash(Start-Sleep -Seconds 2)",
       "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/products\" -UseBasicParsing -TimeoutSec 10)",
-      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/admin/inventory\" -UseBasicParsing -TimeoutSec 10)"
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/admin/inventory\" -UseBasicParsing -TimeoutSec 10)",
+      "Bash(rm -rf \"c:\\\\Users\\\\vpxui\\\\Desktop\\\\site-proveaksemen\\\\test\\\\app\\\\products\\\\[slug]\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\vpxui\\Desktop\\site-proveaksemen\\test\\app\\products\\[slug]"
     ]
   }
 }

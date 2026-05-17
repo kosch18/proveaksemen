@@ -51,7 +51,6 @@ COPY --from=builder /app/node_modules/@prisma         ./node_modules/@prisma
 
 # Prisma CLI (needed for db push in entrypoint)
 COPY --from=builder /app/node_modules/prisma          ./node_modules/prisma
-COPY --from=builder /app/node_modules/.bin/prisma     ./node_modules/.bin/prisma
 
 # Uploads directory
 RUN mkdir -p ./public/uploads && chown nextjs:nodejs ./public/uploads
