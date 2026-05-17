@@ -16,7 +16,9 @@
       "Bash(Start-Sleep -Seconds 2)",
       "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/products\" -UseBasicParsing -TimeoutSec 10)",
       "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000/admin/inventory\" -UseBasicParsing -TimeoutSec 10)",
-      "Bash(rm -rf \"c:\\\\Users\\\\vpxui\\\\Desktop\\\\site-proveaksemen\\\\test\\\\app\\\\products\\\\[slug]\")"
+      "Bash(rm -rf \"c:\\\\Users\\\\vpxui\\\\Desktop\\\\site-proveaksemen\\\\test\\\\app\\\\products\\\\[slug]\")",
+      "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\(p.dependencies.sharp\\)\")",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\vpxui\\\\Desktop\\\\site-proveaksemen\\\\test\" -Force | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | Format-Table -AutoSize)"
     ],
     "additionalDirectories": [
       "c:\\Users\\vpxui\\Desktop\\site-proveaksemen\\test\\app\\products\\[slug]"
