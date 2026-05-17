@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum Department {
+  ENGINEERING
+  DESIGN
+  SALES
+  MANAGEMENT
+}
+
+model Employee {
+  id         String     @id @default(cuid())
+  name       String
+  role       String
+  department Department
+  bio        String     @db.Text
+  imageUrl   String?
+  email      String?
+  order      Int        @default(0)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@map("employees")
+  @@index([department])
+  @@index([order])
+}
+
+enum ItemStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+}
+
+model InventoryItem {
+  id           Int        @id @default(autoincrement())
+  name         String
+  category     String
+  status       ItemStatus @default(AVAILABLE)
+  location     String
+  purchaseDate String
+  valueNok     Int
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@map("inventory_items")
+  @@index([status])
+  @@index([category])
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  category         String
+  shortDescription String   @db.Text
+  fullDescription  String   @db.Text
+  imageUrl         String?
+  features         Json
+  specs            Json
+  published        Boolean  @default(true)
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("products")
+  @@index([published])
+  @@index([slug])
+}

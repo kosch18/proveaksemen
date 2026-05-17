@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 130%;
+  }
+
+  :root {
+    --bg: #FAFAF7;
+    --fg: #0F1419;
+    --accent: #2D5F5D;
+    --muted: #6B7280;
+    --border: #E5E5E0;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --bg: #0F1117;
+    --fg: #F1F5F9;
+    --accent: #4AAAA8;
+    --muted: #94A3B8;
+    --border: #1E2530;
+  }
+
+  /* Admin panel always uses light variables regardless of theme */
+  .admin-root,
+  .dark .admin-root {
+    --bg: #FAFAF7;
+    --fg: #0F1419;
+    --accent: #2D5F5D;
+    --muted: #6B7280;
+    --border: #E5E5E0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  code, pre, kbd, samp {
+    @apply font-mono;
+  }
+}
