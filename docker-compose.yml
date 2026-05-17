@@ -30,6 +30,7 @@ services:
       DATABASE_URL: postgresql://${POSTGRES_USER:-nordic}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-nordic_devices}?schema=public
       AUTH_SECRET: ${AUTH_SECRET}
       NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+      AUTH_TRUST_HOST: "true"
     volumes:
       - uploads_data:/app/public/uploads
     depends_on:
